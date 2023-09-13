@@ -108,4 +108,14 @@ class GildedRoseTest {
         assertEquals(-1, app.items[0].sellIn);
     }
 
+    @Test
+    void sulfuras_being_a_legendary_item_never_has_to_be_sold_or_decreases_in_quality() {
+        Item[] items = new Item[]{new Item(GildedRose.SULFURAS, 0, 1000)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(GildedRose.SULFURAS, app.items[0].name);
+        assertEquals(1000, app.items[0].quality);
+        assertEquals(0, app.items[0].sellIn);
+    }
+
 }
