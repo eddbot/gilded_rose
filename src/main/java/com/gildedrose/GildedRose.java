@@ -12,6 +12,9 @@ class GildedRose {
     }
 
     public void updateQuality() {
+
+        Item[] items = mapItems();
+
         for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals(AGED_BRIE)
                     && !items[i].name.equals(BACKSTAGE_PASSES)) {
@@ -62,5 +65,9 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private Item[] mapItems(){
+        return this.items;
     }
 }
