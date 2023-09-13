@@ -79,11 +79,11 @@ class GildedRoseTest {
 
     // Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less
     @Test
-    void backstage_passes_() {
-        Item[] items = new Item[]{new Item(GildedRose.AGED_BRIE, 0, 50)};
+    void backstage_passes_quality_increase_by_2_when_sell_in_is_10_days_or_less() {
+        Item[] items = new Item[]{new Item(GildedRose.BACKSTAGE_PASSES, 0, 50)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals(GildedRose.AGED_BRIE, app.items[0].name);
+        assertEquals(GildedRose.BACKSTAGE_PASSES, app.items[0].name);
         assertEquals(50, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
     }
