@@ -39,29 +39,29 @@ class GildedRoseTest {
 
     @Test
     void aged_brie_quality_increases_by_one_when_sell_in_not_reached() {
-        Item[] items = new Item[]{new Item("Aged Brie", 1, 1)};
+        Item[] items = new Item[]{new Item(GildedRose.AGED_BRIE, 1, 1)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("Aged Brie", app.items[0].name);
+        assertEquals(GildedRose.AGED_BRIE, app.items[0].name);
         assertEquals(2, app.items[0].quality);
         assertEquals(0, app.items[0].sellIn);
     }
 
     @Test
     void aged_brie_quality_increases_by_two_when_sell_in_reached() {
-        Item[] items = new Item[]{new Item("Aged Brie", 0, 1)};
+        Item[] items = new Item[]{new Item(GildedRose.AGED_BRIE, 0, 1)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("Aged Brie", app.items[0].name);
+        assertEquals(GildedRose.AGED_BRIE, app.items[0].name);
         assertEquals(3, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
     }
     @Test
     void aged_brie_quality_cannot_go_above_50() {
-        Item[] items = new Item[]{new Item("Aged Brie", 0, 50)};
+        Item[] items = new Item[]{new Item(GildedRose.AGED_BRIE, 0, 50)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("Aged Brie", app.items[0].name);
+        assertEquals(GildedRose.AGED_BRIE, app.items[0].name);
         assertEquals(50, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
     }
