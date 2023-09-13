@@ -80,11 +80,31 @@ class GildedRoseTest {
     // Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less
     @Test
     void backstage_passes_quality_increase_by_2_when_sell_in_is_10_days_or_less() {
-        Item[] items = new Item[]{new Item(GildedRose.BACKSTAGE_PASSES, 0, 50)};
+        Item[] items = new Item[]{new Item(GildedRose.BACKSTAGE_PASSES, 10, 0)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(GildedRose.BACKSTAGE_PASSES, app.items[0].name);
-        assertEquals(50, app.items[0].quality);
+        assertEquals(2, app.items[0].quality);
+        assertEquals(9, app.items[0].sellIn);
+    }
+
+    @Test
+    void backstage_passes_quality_increase_by_3_when_sell_in_is_5_days_or_less() {
+        Item[] items = new Item[]{new Item(GildedRose.BACKSTAGE_PASSES, 5, 0)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(GildedRose.BACKSTAGE_PASSES, app.items[0].name);
+        assertEquals(3, app.items[0].quality);
+        assertEquals(4, app.items[0].sellIn);
+    }
+
+    @Test
+    void backstage_passes_quality_is_0_when_sell_in_is_reached() {
+        Item[] items = new Item[]{new Item(GildedRose.BACKSTAGE_PASSES, 0, 1000)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(GildedRose.BACKSTAGE_PASSES, app.items[0].name);
+        assertEquals(0, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
     }
 
