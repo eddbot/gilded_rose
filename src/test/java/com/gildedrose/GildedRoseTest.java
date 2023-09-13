@@ -36,6 +36,16 @@ class GildedRoseTest {
         assertEquals(-1, app.items[0].sellIn);
     }
 
+    @Test
+    void generic_item_quality_cannot_be_negative() {
+        Item[] items = new Item[]{new Item("generic_item", 0, 0)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("generic_item", app.items[0].name);
+        assertEquals(0, app.items[0].quality);
+        assertEquals(-1, app.items[0].sellIn);
+    }
+
 
     @Test
     void aged_brie_quality_increases_by_one_when_sell_in_not_reached() {
@@ -66,4 +76,16 @@ class GildedRoseTest {
         assertEquals(50, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
     }
+
+    // Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less
+    @Test
+    void backstage_passes_() {
+        Item[] items = new Item[]{new Item(GildedRose.AGED_BRIE, 0, 50)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(GildedRose.AGED_BRIE, app.items[0].name);
+        assertEquals(50, app.items[0].quality);
+        assertEquals(-1, app.items[0].sellIn);
+    }
+
 }
