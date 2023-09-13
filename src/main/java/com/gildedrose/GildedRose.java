@@ -1,9 +1,11 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+
 class GildedRose {
 
     public static final String AGED_BRIE = "Aged Brie";
-    public static final String BACKSTAGE_PASSES ="Backstage passes to a TAFKAL80ETC concert" ;
+    public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     Item[] items;
 
@@ -15,9 +17,13 @@ class GildedRose {
 
         Item[] items = mapItems();
 
+//        for(Item item : items) {
+//            item.update();
+//        }
+
         for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals(AGED_BRIE)
-                    && !items[i].name.equals(BACKSTAGE_PASSES)) {
+                && !items[i].name.equals(BACKSTAGE_PASSES)) {
                 if (items[i].quality > 0) {
                     if (!items[i].name.equals(SULFURAS)) {
                         items[i].quality = items[i].quality - 1;
@@ -67,7 +73,9 @@ class GildedRose {
         }
     }
 
-    private Item[] mapItems(){
-        return this.items;
+    private Item[] mapItems() {
+        return Arrays.stream(this.items)
+            .map(item -> ItemFactory.create(item.name, item.sellIn, item.quality))
+            .toArray(Item[]::new);
     }
 }
