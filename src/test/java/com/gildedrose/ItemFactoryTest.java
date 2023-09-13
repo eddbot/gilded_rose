@@ -20,4 +20,19 @@ public class ItemFactoryTest {
         assertEquals(10, item.quality);
         assertEquals(10, item.sellIn);
     }
+
+    @Test
+    void returns_aged_brie_as_required(){
+
+        // arrange
+        String itemName = GildedRose.AGED_BRIE;
+
+        // act
+        Item item = ItemFactory.create(itemName, 10, 10);
+
+        // assert
+        assertEquals("AgedBrieItem", item.getClass().getSimpleName());
+        assertEquals(10, item.quality);
+        assertEquals(10, item.sellIn);
+    }
 }
