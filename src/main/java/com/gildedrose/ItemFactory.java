@@ -7,9 +7,11 @@ public class ItemFactory {
             case GildedRose.AGED_BRIE:
                 return new AgedBrieItem(name, sellIn, quality);
             case GildedRose.BACKSTAGE_PASSES:
-                return new BackstagePassItem(name,sellIn,quality);
+                return new BackstagePassItem(name, sellIn, quality);
+            case GildedRose.SULFURAS:
+                return new SulfuraslItem(name, sellIn, quality);
             default:
-            return new NormalItem(name, sellIn, quality);
+                return new NormalItem(name, sellIn, quality);
         }
     }
 }

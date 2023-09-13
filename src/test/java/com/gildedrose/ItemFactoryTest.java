@@ -49,4 +49,19 @@ public class ItemFactoryTest {
         assertEquals(10, item.quality);
         assertEquals(10, item.sellIn);
     }
+
+    @Test
+    void returns_sulfuras_as_required(){
+
+        // arrange
+        String itemName = GildedRose.SULFURAS;
+
+        // act
+        Item item = ItemFactory.create(itemName, 10, 80);
+
+        // assert
+        assertEquals("SulfurasItem", item.getClass().getSimpleName());
+        assertEquals(80, item.quality);
+        assertEquals(10, item.sellIn);
+    }
 }
