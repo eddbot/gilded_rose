@@ -7,6 +7,23 @@ public class NormalItem extends PubItem {
 
 
     public void update() {
+        updateQuality();
+        updateSellIn();
+     }
 
+    private void updateQuality(){
+        if(sellIn > 0) {
+            quality -= 1;
+        } else {
+            quality -= 2;
+        }
+
+        if(quality < 0) {
+            quality = 0;
+        }
+    }
+
+    private void updateSellIn(){
+        sellIn -= 1;
     }
 }
