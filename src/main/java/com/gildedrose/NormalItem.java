@@ -6,6 +6,7 @@ public class NormalItem extends PubItem {
     }
 
 
+    @Override
     public void update() {
         updateQuality();
         updateSellIn();
