@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 public class ItemFactory {
-    public static Item create(String name, int sellIn, int quality) {
+    public static PubItem create(String name, int sellIn, int quality) {
 
         switch (name) {
             case GildedRose.AGED_BRIE:

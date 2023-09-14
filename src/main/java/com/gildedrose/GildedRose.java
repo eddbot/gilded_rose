@@ -15,7 +15,7 @@ class GildedRose {
 
     public void updateQuality() {
 
-        Item[] items = mapItems();
+        PubItem[] items = mapItems();
 
         for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals(AGED_BRIE)
@@ -71,9 +71,9 @@ class GildedRose {
         this.items = items;
     }
 
-    private Item[] mapItems() {
+    private PubItem[] mapItems() {
         return Arrays.stream(this.items)
             .map(item -> ItemFactory.create(item.name, item.sellIn, item.quality))
-            .toArray(Item[]::new);
+            .toArray(PubItem[]::new);
     }
 }
