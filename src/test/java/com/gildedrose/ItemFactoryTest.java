@@ -64,4 +64,19 @@ public class ItemFactoryTest {
         assertEquals(80, item.quality);
         assertEquals(10, item.sellIn);
     }
+
+    @Test
+    void returns_conjured_item_as_required(){
+
+        // arrange
+        String itemName = GildedRose.CONJURED_ITEM;
+
+        // act
+        Item item = ItemFactory.create(itemName, 8, 10);
+
+        // assert
+        assertEquals("ConjuredItem", item.getClass().getSimpleName());
+        assertEquals(10, item.quality);
+        assertEquals(8, item.sellIn);
+    }
 }

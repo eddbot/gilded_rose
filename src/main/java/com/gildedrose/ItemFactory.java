@@ -10,6 +10,8 @@ public class ItemFactory {
                 return new BackstagePassItem(name, sellIn, quality);
             case GildedRose.SULFURAS:
                 return new SulfurasItem(name, sellIn, quality);
+            case GildedRose.CONJURED_ITEM:
+                return new ConjuredItem(name, sellIn, quality);
             default:
                 return new NormalItem(name, sellIn, quality);
         }

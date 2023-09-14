@@ -120,23 +120,21 @@ class GildedRoseTest {
     }
 
     @Test
-    @Disabled
     void conjured_item_quality_degrades_by_two_when_sell_in_not_reached() {
-        Item[] items = new Item[]{new Item("Conjured Item", 3, 10)};
+        Item[] items = new Item[]{new Item(GildedRose.CONJURED_ITEM, 3, 10)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("Conjured Item", app.items[0].name);
+        assertEquals(GildedRose.CONJURED_ITEM, app.items[0].name);
         assertEquals(8, app.items[0].quality);
         assertEquals(2, app.items[0].sellIn);
     }
 
     @Test
-    @Disabled
     void conjured_item_quality_degrades_by_four_when_sell_in_reached() {
-        Item[] items = new Item[]{new Item("Conjured Item", 0, 10)};
+        Item[] items = new Item[]{new Item(GildedRose.CONJURED_ITEM, 0, 10)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("Conjured Item", app.items[0].name);
+        assertEquals(GildedRose.CONJURED_ITEM, app.items[0].name);
         assertEquals(6, app.items[0].quality);
         assertEquals(-1, app.items[0].sellIn);
     }
